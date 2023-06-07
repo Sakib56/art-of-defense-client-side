@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import googleLogin from '../../assets/google.png'
+import googleLoginImg from '../../assets/google.png'
 import img from '../../assets/login.jpg'
 import { set, useForm } from 'react-hook-form';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -13,7 +13,7 @@ const SignUp = () => {
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(true)
     const [error, setError] = useState('')
-    const { createUser, logoutUser, updateUserProfile } = useContext(AuthContext)
+    const { createUser, googleLogin, logoutUser, updateUserProfile } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
@@ -39,6 +39,17 @@ const SignUp = () => {
             })
             .catch(error => console.log(error.message))
     };
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return (
         <div className='max-w-6xl mx-auto'>
@@ -106,8 +117,8 @@ const SignUp = () => {
                         <input type="submit" className='w-full bg-primary rounded-lg mt-5 py-2 text-xl text-white font-bold cursor-pointer' value="Sign Up" />
                         <h1 className='text-center text-md mt-5'>Already have an account ? <Link to='/login'><span className='link text-primary'>Login</span></Link></h1>
                     </form>
-                    <div className='px-8 cursor-pointer'>
-                        <button className='flex items-center justify-center gap-4 btn btn-outline border text-primary border-pink-600 w-full hover:bg-primary hover:border-0'>sign up With Google <img className='w-12 h-12 p-2' src={googleLogin} alt="" /></button>
+                    <div onClick={handleGoogleLogin} className='px-8 cursor-pointer'>
+                        <button className='flex items-center justify-center gap-4 btn btn-outline border text-primary border-pink-600 w-full hover:bg-primary hover:border-0'>sign up With Google <img className='w-12 h-12 p-2' src={googleLoginImg} alt="" /></button>
                     </div>
                 </div>
             </div >

@@ -4,7 +4,7 @@ import logoImg from '../../../assets/martial-arts-logo.png'
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logoutUser } = useContext(AuthContext)
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/menu'>Menu</Link></li>
@@ -12,9 +12,14 @@ const Navbar = () => {
         <li><Link to='/privatePage'>privatePage</Link></li>
 
     </>
+    const handleLogout = () => {
+        logoutUser()
+            .then(() => { })
+            .catch(error => console.error())
+    }
     return (
         <div className=''>
-            <div className="navbar bg-gray-100">
+            <div className="navbar bg-gray-100 py-3 px-5">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,11 +41,11 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {user ? <>
-                        <img className='w-12 h-12' src={user.photoURL} alt="" />
-                        <button className='btn btn-outline'>Logout</button>
+                        <img className='w-12 h-12 rounded-full mr-5' src={user.photoURL} alt="" />
+                        <button onClick={handleLogout} className='btn btn-neutral'>Logout</button>
                     </> :
                         <>
-                            <button className='btn btn-outline'>Login</button>
+                            <Link to='/login'><button className='btn btn-neutral'>Login</button></Link>
                         </>}
                 </div>
             </div>

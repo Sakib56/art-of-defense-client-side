@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const { loginUser } = useContext(AuthContext)
+    const { loginUser, googleLogin } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(true)
     const [error, setError] = useState('')
     const navigate = useNavigate()
@@ -28,6 +28,18 @@ const Login = () => {
                 })
             })
             .catch(error => console.log(error))
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
     return (
         <div className='max-w-6xl mx-auto'>
@@ -63,7 +75,7 @@ const Login = () => {
                         <input type="submit" className='w-full bg-primary rounded-lg mt-5 py-2 text-xl text-white font-bold cursor-pointer' value="Sign In" />
                         <h1 className='text-center text-md mt-5'>New User Please ? <Link to='/signUp'><span className='link text-primary'>Sign Up</span></Link></h1>
                     </form>
-                    <div className='px-8 cursor-pointer'>
+                    <div onClick={handleGoogleLogin} className='px-8 cursor-pointer'>
                         <button className='flex items-center justify-center gap-4 btn btn-outline border text-primary border-pink-600 w-full hover:bg-primary hover:border-0'>sign In With Google <img className='w-12 h-12 p-2' src={googleImg} alt="" /></button>
                     </div>
                 </div>
