@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '../../../assets/martial-arts-logo.png'
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext)
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/menu'>Menu</Link></li>
@@ -12,7 +14,7 @@ const Navbar = () => {
     </>
     return (
         <div className=''>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-gray-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -33,7 +35,13 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    {user ? <>
+                        <img className='w-12 h-12' src={user.photoURL} alt="" />
+                        <button className='btn btn-outline'>Logout</button>
+                    </> :
+                        <>
+                            <button className='btn btn-outline'>Login</button>
+                        </>}
                 </div>
             </div>
         </div>
