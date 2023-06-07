@@ -39,7 +39,7 @@ const Footer = () => {
                 </div>
             </footer>
             <div className='mt-5'>
-                <div className='text-center'>
+                <div className='text-center text-sm'>
                     <p>Copyright © 2023 - All right reserved by Art of Defense Academy</p>
                 </div>
             </div>
