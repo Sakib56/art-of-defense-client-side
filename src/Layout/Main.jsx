@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
 
 const Main = () => {
@@ -17,6 +17,7 @@ const Main = () => {
             <div className={isDarkTheme ? 'bg-[#111827] bg-gray-[dark] text-white' : ' bg-zinc-600'}>
                 <Footer></Footer>
             </div>
+            <ScrollRestoration></ScrollRestoration>
         </div>
     );
 };

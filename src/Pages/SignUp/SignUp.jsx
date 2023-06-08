@@ -23,28 +23,54 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 updateUserProfile(data.name, data.photoUrl)
-                    .then(() => { })
-                    .catch(error => console.log(error))
+                    .then(() => {
+                        const savedUser = { name: data.name, photo: data.photoUrl, email: data.email, role: 'instructor' }
+                        fetch('http://localhost:5000/users', {
+                            method: "POST",
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(savedUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    navigate('/login', { replace: true })
+                                    Swal.fire({
+                                        title: 'SignUp successfully !',
+                                        text: 'Please login',
+                                        icon: 'success',
+                                        confirmButtonText: 'ok'
+                                    })
+                                }
+                            })
 
-                logoutUser()
-                    .then(() => { })
+                        logoutUser()
+                            .then(() => { })
+                            .catch(error => console.log(error))
+                    })
                     .catch(error => console.log(error))
-                navigate('/login')
-                Swal.fire({
-                    title: 'SignUp successfully !',
-                    text: 'Please login',
-                    icon: 'success',
-                    confirmButtonText: 'ok'
-                })
             })
-            .catch(error => console.log(error.message))
+            .catch(error => console.log(error))
     };
+
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                navigate('/')
+                const savedUser = { name: loggedUser.displayName, photo: loggedUser.photoURL, email: loggedUser.email, role: 'student' }
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate('/')
+                    })
             })
             .catch(error => {
                 console.log(error)
@@ -71,7 +97,8 @@ const SignUp = () => {
                             <label>
                                 <p className='text-lg font-semibold mb-1 mt-3'>Photo Url</p>
                             </label>
-                            <input className="input input-bordered w-full" type="url" {...register("photoUrl")} placeholder='Enter your photo url' name="photoUrl" />
+                            <input className="input input-bordered w-full" type="url" {...register("photoUrl",{ required: true })} placeholder='Enter your photo url' name="photoUrl" />
+                            {errors.photoUrl && <p className='text-sm text-red-600 mt-2'>Photo Url is required</p>}
 
                         </div>
                         <div className='form-control'>

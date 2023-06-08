@@ -12,6 +12,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(true)
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/';
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
@@ -19,7 +20,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                navigate('/')
+                navigate(from, { replace: true });
                 Swal.fire({
                     title: 'Login successfully !',
                     text: '',
@@ -35,7 +36,18 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                navigate('/')
+                const savedUser = { name: loggedUser.displayName, photo:loggedUser.photoURL, loggedUser, email: loggedUser.email, role: 'student' }
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true })
+                    })
             })
             .catch(error => {
                 console.log(error)

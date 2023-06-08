@@ -8,9 +8,11 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
     const { user, logoutUser } = useContext(AuthContext)
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/menu'>Menu</Link></li>
-        <li><Link to='/order/salad'>Order Food</Link></li>
-        <li><Link to='/privatePage'>privatePage</Link></li>
+        <li><Link to='/instructors'>Instructors</Link></li>
+        <li><Link to='/classes'>Classes</Link></li>
+        {
+            user && <li><Link to='/Dashboard '>Dashboard </Link></li>
+        }
 
     </>
     const handleLogout = () => {
@@ -36,7 +38,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 font-bold text-xl">
                         {navOptions}
                     </ul>
                 </div>
@@ -51,7 +53,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
                         <button onClick={handleLogout} className='btn-xs lg:btn btn-neutral'>Logout</button>
                     </> :
                         <>
-                            <Link to='/login'><button className='btn-xs lg:btn btn-neutral'>Login</button></Link>
+                            <Link to='/login'><button className='btn-xs lg:btn lg:btn-neutral'>Login</button></Link>
                         </>}
                 </div>
             </div>
