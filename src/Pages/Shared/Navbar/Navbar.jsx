@@ -20,7 +20,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
     }
     return (
         <div >
-            <div className="navbar py-3 px-5">
+            <div className="navbar py-3 lg:px-5">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,9 +30,9 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
                             {navOptions}
                         </ul>
                     </div>
-                    <div className="btn btn-ghost normal-case text-xl">
-                        <img className='w-10 h-10' src={logoImg} alt="" />
-                        <span className='lg:text-3xl font-bold'> Art Of Defense</span>
+                    <div className="btn btn-ghost normal-case">
+                        <img className='w-8 h-8 lg:w-10 lg:h-10' src={logoImg} alt="" />
+                        <span className='text-sm lg:text-3xl lg:font-bold'> Art Of Defense</span>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -41,17 +41,17 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button onClick={toggleTheme} className="text-lg mr-5 font-medium">
+                    <button onClick={toggleTheme} className="text-lg lg:mr-5 font-medium">
                         {
                             isDarkTheme ? <div className='flex justify-center items-center'><FaMoon /> <p>Dark</p></div> : <div className='flex justify-center items-center'><FaRegMoon /> <p>Light</p></div>
                         }
                     </button>
                     {user ? <>
-                        <img className='w-12 h-12 rounded-full mr-5' src={user.photoURL} alt="" />
-                        <button onClick={handleLogout} className='btn btn-neutral'>Logout</button>
+                        <img className='w-8 h-8 lg:w-12 lg:h-12 rounded-full lg:mr-5' src={user.photoURL} alt="" />
+                        <button onClick={handleLogout} className='btn-xs lg:btn btn-neutral'>Logout</button>
                     </> :
                         <>
-                            <Link to='/login'><button className='btn btn-neutral'>Login</button></Link>
+                            <Link to='/login'><button className='btn-xs lg:btn btn-neutral'>Login</button></Link>
                         </>}
                 </div>
             </div>
