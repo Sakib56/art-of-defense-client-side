@@ -4,6 +4,7 @@ import img2 from '../../../assets/slider-2.jpg';
 import img3 from '../../../assets/slider-3.jpg';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import './Slider.css'
 const Slider = () => {
     return (
 
