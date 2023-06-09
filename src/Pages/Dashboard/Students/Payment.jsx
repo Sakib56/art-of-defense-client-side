@@ -20,7 +20,11 @@ const Payment = () => {
     console.log(classInfo)
     return (
         <div className='w-full'>
-            <h1 className='text-center text-3xl font-bold mb-20'>payment page</h1>
+            <h1 className='text-center text-3xl font-bold mb-5'>Payment Classes Enrol Fee</h1>
+            <div className='text-lg text-center font-semibold'>
+                <h1>Class: {classInfo[0]?.name}</h1>
+                <p className='mb-20'>Price: ${classInfo[0]?.price}</p>
+            </div>
             <div className='w-1/2 mx-auto'>
                 <Elements stripe={stripePromise}>
                     <CheckOutForm cart={classInfo} price={classInfo[0]?.price} />
