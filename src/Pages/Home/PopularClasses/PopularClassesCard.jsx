@@ -2,7 +2,7 @@ import React from 'react';
 import { FaMoon, FaRegMoon, FaStar } from 'react-icons/fa';
 
 const PopularClassesCard = ({ popularClass }) => {
-    console.log(popularClass)
+    // console.log(popularClass)
     const { class_img, name, price, student_admit_number } = popularClass
     return (
         <div className='shadow-xl p-7 rounded-lg'>

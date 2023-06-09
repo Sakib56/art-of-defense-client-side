@@ -4,7 +4,7 @@ import PopularInstructorsCard from './PopularInstructorsCard';
 
 const PopularInstructors = () => {
     const [classes] = useClasses()
-    console.log(classes);
+    // console.log(classes);
     return (
         <div className='my-8 lg:my-20 max-w-6xl mx-auto'>
             <h1 className='text-4xl text-center font-bold'>Popular Instructors</h1>
