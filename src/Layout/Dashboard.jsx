@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import useCart from '../Hooks/useCart';
 
 const Dashboard = () => {
+    const [cart, refetch] = useCart()
     return (
         <div className='max-w-screen-2xl mx-auto'>
             <div className="drawer lg:drawer-open">
@@ -20,7 +22,7 @@ const Dashboard = () => {
                             <Link to='/'>BackHome</Link>
                         </li>
                         <li className='bg-slate-700 rounded-lg'>
-                            <Link to='/dashboard/mySelectedClass'>My Selected Class</Link>
+                            <Link to='/dashboard/mySelectedClass'>My Selected Class <span className="badge badge-secondary">+{cart?.length || 0}</span></Link>
                         </li>
                         <li className='bg-slate-700 rounded-lg'>
                             <Link to='/dashboard/myEnrolledClasses'>My Enrolled Class</Link>
