@@ -15,7 +15,7 @@ const AllClasses = () => {
             })
             .catch(error => console.error())
     }, [])
-    console.log(allClassesData)
+    // console.log(allClassesData)
     return (
         <div className='my-8 lg:my-14 max-w-7xl mx-auto'>
             <h1 className='text-center font-bold text-3xl my-10'>All classes</h1>

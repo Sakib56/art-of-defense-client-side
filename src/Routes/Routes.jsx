@@ -8,37 +8,43 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Instructors from "../Pages/Instructors/Instructors";
 import AllClasses from "../Pages/AllClasses/AllClasses";
+import Dashboard from "../Layout/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
-        children:[
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/signUp',
-                element:<SignUp></SignUp>
+                path: '/signUp',
+                element: <SignUp></SignUp>
             },
             {
-                path:'/instructors',
-                element:<Instructors></Instructors>
+                path: '/instructors',
+                element: <Instructors></Instructors>
             },
             {
-                path:'/classes',
-                element:<AllClasses></AllClasses>
+                path: '/classes',
+                element: <AllClasses></AllClasses>
             }
         ]
     },
     {
-        path:"*",
-        element:<ErrorPage></ErrorPage>
+        path: '/dashboard',
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+    },
+    {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
     }
 ]);
 

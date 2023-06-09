@@ -11,7 +11,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         {
-            user && <li><Link to='/Dashboard '>Dashboard </Link></li>
+            user && <li><Link to='/dashboard '>Dashboard </Link></li>
         }
 
     </>
@@ -50,7 +50,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
                     </button>
                     {user ? <>
                         <img className='w-8 h-8 lg:w-12 lg:h-12 rounded-full lg:mr-5' src={user.photoURL} alt="" />
-                        <button onClick={handleLogout} className='btn-xs lg:btn btn-neutral'>Logout</button>
+                        <button onClick={handleLogout} className='btn-xs lg:btn lg:btn-neutral'>Logout</button>
                     </> :
                         <>
                             <Link to='/login'><button className='btn-xs lg:btn lg:btn-neutral'>Login</button></Link>
