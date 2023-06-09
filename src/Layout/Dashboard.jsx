@@ -26,7 +26,7 @@ const Dashboard = () => {
                             <Link to='/dashboard/myEnrolledClasses'>My Enrolled Class</Link>
                         </li>
                         <li className='bg-slate-700 rounded-lg'>
-                            <Link>Payment History</Link>
+                            <Link to='/dashboard/paymentHistory'>Payment History</Link>
                         </li>
 
 
