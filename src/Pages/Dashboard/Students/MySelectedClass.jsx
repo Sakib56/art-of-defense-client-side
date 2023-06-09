@@ -18,7 +18,7 @@ const MySelectedClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-             
+
                 fetch(`http://localhost:5000/carts/${id}`, {
                     method: "DELETE"
                 })
@@ -77,7 +77,7 @@ const MySelectedClasses = () => {
                                 </td>
                                 <td className='text-xl'>$ {row.price}</td>
                                 <td>
-                                    <button className='btn btn-success'>Pay</button>
+                                    <Link to={`/dashboard/payment/${row._id}`}><button className='btn btn-success'>Pay</button></Link>
                                 </td>
                                 <td>
                                     <button onClick={() => handleDelete(row._id)} className="btn btn-ghost text-red-500 bg-red-200 text-2xl"><FaTrashAlt /></button>
