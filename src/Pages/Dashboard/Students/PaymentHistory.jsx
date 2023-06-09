@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import useAuth from '../../../Hooks/useAuth';
 
 const PaymentHistory = () => {
+    const { user } = useAuth()
     const [paymentHistory, setPaymentHistory] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/paymentHistory')
             .then(res => res.json())
             .then(data => {
-                setPaymentHistory(data)
+                const paymentCollection = data.filter(dt => dt.email == user.email);
+                setPaymentHistory(paymentCollection)
             })
     }, [])
     // 

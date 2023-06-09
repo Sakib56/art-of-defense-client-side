@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation()
 
     if (loading) {
-            return <div className='text-center'><ClipLoader
+        return <div className='text-center'><ClipLoader
             color="#36d7b7"
             // loading={loading}
             // cssOverride={override}
@@ -22,7 +22,7 @@ const PrivateRoute = ({ children }) => {
         return children;
     }
     return (
-        <Navigate to='/login'></Navigate>
+        <Navigate to='/login' state={{ from: location }} replace ></Navigate>
     );
 };
 

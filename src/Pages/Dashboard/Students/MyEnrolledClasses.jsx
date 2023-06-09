@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import useAuth from '../../../Hooks/useAuth';
 
 const MyEnrolledClasses = () => {
+    const { user } = useAuth();
     const [enrolledClasses, setEnrolledClasses] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/enrolledClasses')
-        .then(res => res.json())
-        .then(data => {
-            setEnrolledClasses(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                // setEnrolledClasses(data)
+                const enrolledCollection = data.filter(dt => dt.email == user.email)
+                setEnrolledClasses(enrolledCollection)
+            })
     }, [])
     return (
         <div className='w-3/4 mx-auto'>

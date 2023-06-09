@@ -98,7 +98,11 @@ const CheckOutForm = ({ cart, price }) => {
                         .then(data => {
                             console.log(data)
                             const available_seats = cart[0].available_seats - 1;
-                            const updateInfo = { id: cart[0]._id, seatNum: available_seats }
+                            const student_admit_number = cart[0].student_admit_number
+                            const updateInfo = {
+                                id: cart[0]._id, seatNum: available_seats,
+                                student_admit_number: student_admit_number
+                            }
                             fetch(`http://localhost:5000/updateSeatNumbers`, {
                                 method: "PATCH",
                                 headers: {

@@ -5,10 +5,10 @@ import Swal from 'sweetalert2';
 
 const AllClassesCard = ({ data }) => {
     const { user } = useContext(AuthContext)
-    // console.log(data)
+    console.log(data)
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
-    const { class_img, instructor, name, available_seats, price, _id } = data
+    const { class_img, instructor, name, available_seats, price, _id, student_admit_number } = data
     const handleClassSelect = (data) => {
         if (!user) {
             Swal.fire({
@@ -20,7 +20,7 @@ const AllClassesCard = ({ data }) => {
             return navigate('/login')
         }
         else {
-            const selectClasses = { _id: data._id, class_img: data.class_img, instructor: data.instructor, name: data.name, available_seats: data.available_seats, price: data.price, email: user?.email }
+            const selectClasses = { _id: data._id, class_img: data.class_img, instructor: data.instructor, name: data.name, available_seats: data.available_seats, price: data.price, email: user?.email, student_admit_number: student_admit_number }
             // console.log(selectClasses)
 
             fetch('http://localhost:5000/studentSelectClasses', {

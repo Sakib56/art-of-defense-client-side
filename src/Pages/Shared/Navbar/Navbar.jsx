@@ -1,18 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '../../../assets/martial-arts-logo.png'
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaMoon, FaRegMoon } from 'react-icons/fa';
 
+
 const Navbar = ({ toggleTheme, isDarkTheme }) => {
     const { user, logoutUser } = useContext(AuthContext)
+
+    const [checkUser, setCheckUser] = useState()
+
+    useEffect(() => {
+        fetch('http://localhost:5000/userEmail')
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                const userinfo = data.find(dt => dt.email == user?.email)
+                setCheckUser(userinfo?.role)
+            })
+    }, [user])
+
+    console.log(checkUser)
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         {
-            user && <li><Link to='/dashboard/mySelectedClass '>Dashboard </Link></li>
+            checkUser == 'student' && <li><Link to='/dashboard/mySelectedClass '>Dashboard </Link></li>
         }
+        {
+            checkUser == 'instructor' && <li><Link to='/dashboard/instructor '>Dashboard </Link></li>
+        }
+        {
+            checkUser == 'admin' && <li><Link to='/dashboard/admin '>Dashboard </Link></li>
+        }
+
 
     </>
     const handleLogout = () => {
