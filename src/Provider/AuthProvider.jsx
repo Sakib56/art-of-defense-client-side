@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
 
             // set jwt token local storage
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+                axios.post('https://art-of-defense-server-side-sakib56.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         // console.log(data.data)
                         localStorage.setItem('access-token', data.data)

@@ -10,7 +10,7 @@ const AllClasses = () => {
     const { user } = useAuth()
     const [role, setRole] = useState('')
     useEffect(() => {
-        axios.get('http://localhost:5000/allClasses')
+        axios.get('https://art-of-defense-server-side-sakib56.vercel.app/allClasses')
             .then(res => {
                 // console.log(res.data)
                 // setAllClassesData(res.data)
@@ -21,7 +21,7 @@ const AllClasses = () => {
             .catch(error => console.error())
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/userEmail')
+        fetch('https://art-of-defense-server-side-sakib56.vercel.app/userEmail')
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

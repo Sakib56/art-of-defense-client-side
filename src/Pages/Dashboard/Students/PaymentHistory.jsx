@@ -5,7 +5,7 @@ const PaymentHistory = () => {
     const { user } = useAuth()
     const [paymentHistory, setPaymentHistory] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/paymentHistory')
+        fetch('https://art-of-defense-server-side-sakib56.vercel.app/paymentHistory')
             .then(res => res.json())
             .then(data => {
                 const paymentCollection = data.filter(dt => dt.email == user.email);

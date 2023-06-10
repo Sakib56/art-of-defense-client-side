@@ -5,7 +5,7 @@ const useClasses = () => {
     const { data: classes = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/popularClasses');
+            const res = await fetch('https://art-of-defense-server-side-sakib56.vercel.app/popularClasses');
             return res.json()
         }
 

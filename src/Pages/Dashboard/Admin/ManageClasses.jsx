@@ -17,7 +17,7 @@ const ManageClasses = () => {
     const { isLoading, refetch, data: allClasses = [] } = useQuery({
         queryKey: ['allClasses'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/allClasses')
+            const res = await axios.get('https://art-of-defense-server-side-sakib56.vercel.app/allClasses')
             // console.log('res from data', res)
             return res.data
         }
@@ -26,7 +26,7 @@ const ManageClasses = () => {
     })
     const handleApproved = (id, status) => {
         const updateData = { id: id, status: status }
-        fetch('http://localhost:5000/updateClassStatus', {
+        fetch('https://art-of-defense-server-side-sakib56.vercel.app/updateClassStatus', {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
@@ -49,7 +49,7 @@ const ManageClasses = () => {
     }
     const handleDenied = (id, status) => {
         const updateData = { id: id, status: status }
-        fetch('http://localhost:5000/updateClassStatus', {
+        fetch('https://art-of-defense-server-side-sakib56.vercel.app/updateClassStatus', {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
@@ -86,7 +86,7 @@ const ManageClasses = () => {
             const FeedBack = { id: id, Feedback: text }
             console.log(FeedBack)
 
-            fetch('http://localhost:5000/updateFeedback', {
+            fetch('https://art-of-defense-server-side-sakib56.vercel.app/updateFeedback', {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'

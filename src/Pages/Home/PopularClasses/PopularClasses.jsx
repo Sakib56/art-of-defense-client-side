@@ -8,7 +8,7 @@ const PopularClasses = () => {
     // const [classes] = useClasses()
     // console.log(classes)
     useEffect(() => {
-        axios.get('http://localhost:5000/popularClasses')
+        axios.get('https://art-of-defense-server-side-sakib56.vercel.app/popularClasses')
             .then(res => {
                 const result = res.data.filter(dt => dt.status == 'approved')
                 setPopularClasses(result)

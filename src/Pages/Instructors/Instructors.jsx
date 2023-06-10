@@ -6,7 +6,7 @@ const Instructors = () => {
     const [instructorsData, setInstructors] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get('http://localhost:5000/instructors')
+        axios.get('https://art-of-defense-server-side-sakib56.vercel.app/instructors')
             .then(res => {
                 console.log(res.data)
                 setInstructors(res.data)

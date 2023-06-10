@@ -5,7 +5,7 @@ const MyEnrolledClasses = () => {
     const { user } = useAuth();
     const [enrolledClasses, setEnrolledClasses] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/enrolledClasses')
+        fetch('https://art-of-defense-server-side-sakib56.vercel.app/enrolledClasses')
             .then(res => res.json())
             .then(data => {
                 // setEnrolledClasses(data)

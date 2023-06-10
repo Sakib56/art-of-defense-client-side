@@ -11,7 +11,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
     const [checkUser, setCheckUser] = useState()
 
     useEffect(() => {
-        fetch('http://localhost:5000/userEmail')
+        fetch('https://art-of-defense-server-side-sakib56.vercel.app/userEmail')
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

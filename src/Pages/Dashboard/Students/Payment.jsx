@@ -10,7 +10,7 @@ const Payment = () => {
     const { id } = useParams()
     // console.log(id)
     useEffect(() => {
-        fetch(`http://localhost:5000/cart/${id}`)
+        fetch(`https://art-of-defense-server-side-sakib56.vercel.app/cart/${id}`)
             .then(res => res.json())
             .then(data => {
                 setClassInfo(data)

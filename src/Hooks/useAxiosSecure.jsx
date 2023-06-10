@@ -11,7 +11,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate(); 
 
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://art-of-defense-server-side-sakib56.vercel.app', 
   });
 
   useEffect(() => {

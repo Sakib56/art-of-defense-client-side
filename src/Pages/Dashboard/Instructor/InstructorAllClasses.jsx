@@ -7,7 +7,7 @@ const InstructorAllClasses = () => {
     console.log(user)
     const [instructorClass, setInstructorsClass] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/allClasses')
+        axios.get('https://art-of-defense-server-side-sakib56.vercel.app/allClasses')
             .then(res => {
                 const result = res.data.filter(dt => dt.instructor_email == user?.email)
                 setInstructorsClass(result)

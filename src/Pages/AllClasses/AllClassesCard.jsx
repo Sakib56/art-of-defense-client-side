@@ -23,9 +23,9 @@ const AllClassesCard = ({ classes, role }) => {
             return navigate('/login')
         }
         else {
-            const selectClasses = { _id: data._id, class_img: data.class_img, instructor: data.instructor, name: data.name, available_seats: data.available_seats, price: data.price, email: user?.email, student_admit_number: student_admit_number }
+            const selectClasses = { class_img: data.class_img, instructor: data.instructor, name: data.name, available_seats: data.available_seats, price: data.price, email: user?.email, student_admit_number: student_admit_number }
 
-            fetch('http://localhost:5000/studentSelectClasses', {
+            fetch('https://art-of-defense-server-side-sakib56.vercel.app/studentSelectClasses', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -35,6 +35,7 @@ const AllClassesCard = ({ classes, role }) => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(selectClasses)
+                    console.log(data)
                     setShow(true)
                     if (data.insertedId) {
                         Swal.fire({

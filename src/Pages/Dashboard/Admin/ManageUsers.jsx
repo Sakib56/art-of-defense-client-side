@@ -7,7 +7,7 @@ const ManageUsers = () => {
     // const [userInfo, setUserInfo] = useState([])
     // const [loading, setLoading] = useState(true)
     // useEffect(() => {
-    //     axios.get('http://localhost:5000/userEmail')
+    //     axios.get('https://art-of-defense-server-side-sakib56.vercel.app/userEmail')
     //         .then(res => {
     //             // console.log(res.data)
     //             setUserInfo(res.data)
@@ -18,7 +18,7 @@ const ManageUsers = () => {
     const { isLoading, refetch, data: userInfo = [] } = useQuery({
         queryKey: ['userInfo'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/userEmail')
+            const res = await axios.get('https://art-of-defense-server-side-sakib56.vercel.app/userEmail')
             // console.log('res from data', res)
             return res.data
         }
@@ -27,7 +27,7 @@ const ManageUsers = () => {
     const handleInstructor = (id, role) => {
         console.log(id, role)
         const updateData = { id: id, role: role }
-        fetch('http://localhost:5000/updateUser', {
+        fetch('https://art-of-defense-server-side-sakib56.vercel.app/updateUser', {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
@@ -51,7 +51,7 @@ const ManageUsers = () => {
     const handleAdmin = (id, role) => {
         console.log(id, role)
         const updateData = { id: id, role: role }
-        fetch('http://localhost:5000/updateUser', {
+        fetch('https://art-of-defense-server-side-sakib56.vercel.app/updateUser', {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

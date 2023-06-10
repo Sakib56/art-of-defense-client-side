@@ -91,7 +91,7 @@ const CheckOutForm = ({ cart, price }) => {
                 .then(res => {
                     console.log(res.data)
 
-                    fetch(`http://localhost:5000/carts/${cart[0]._id}`, {
+                    fetch(`https://art-of-defense-server-side-sakib56.vercel.app/carts/${cart[0]._id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json())
@@ -103,7 +103,7 @@ const CheckOutForm = ({ cart, price }) => {
                                 id: cart[0]._id, seatNum: available_seats,
                                 student_admit_number: student_admit_number
                             }
-                            fetch(`http://localhost:5000/updateSeatNumbers`, {
+                            fetch(`https://art-of-defense-server-side-sakib56.vercel.app/updateSeatNumbers`, {
                                 method: "PATCH",
                                 headers: {
                                     'content-type': 'application/json'

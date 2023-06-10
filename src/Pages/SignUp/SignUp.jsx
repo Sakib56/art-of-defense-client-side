@@ -25,7 +25,7 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoUrl)
                     .then(() => {
                         const savedUser = { name: data.name, photo: data.photoUrl, email: data.email, role: 'student' }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://art-of-defense-server-side-sakib56.vercel.app/users', {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json'
@@ -60,7 +60,7 @@ const SignUp = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 const savedUser = { name: loggedUser.displayName, photo: loggedUser.photoURL, email: loggedUser.email, role: 'student' }
-                fetch('http://localhost:5000/users', {
+                fetch('https://art-of-defense-server-side-sakib56.vercel.app/users', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
