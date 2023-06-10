@@ -25,12 +25,52 @@ const ManageClasses = () => {
 
     })
     const handleApproved = (id, status) => {
-        console.log(id, status)
+        const updateData = { id: id, status: status }
+        fetch('http://localhost:5000/updateClassStatus', {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateData)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch()
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: 'Class Status updated successfully !',
+                        text: '',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                    })
+                }
+            })
     }
     const handleDenied = (id, status) => {
-        console.log(id, status)
+        const updateData = { id: id, status: status }
+        fetch('http://localhost:5000/updateClassStatus', {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateData)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch()
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: 'Class Status updated successfully !',
+                        text: '',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                    })
+                }
+            })
     }
-    const handleFeedback = async () => {
+    const handleFeedback = async (id) => {
         const { value: text } = await Swal.fire({
             input: 'textarea',
             inputLabel: 'Message',
@@ -42,8 +82,32 @@ const ManageClasses = () => {
         })
 
         if (text) {
-            Swal.fire(text)
-            console.log(text)
+            // Swal.fire(text)
+            const FeedBack = { id: id, Feedback: text }
+            console.log(FeedBack)
+
+            fetch('http://localhost:5000/updateFeedback', {
+                method: "PATCH",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(FeedBack)
+
+            })
+                .then(res => res.json())
+                .then(data => {
+                    refetch()
+                    console.log(FeedBack)
+                    console.log(data)
+                    if (data.modifiedCount) {
+                        Swal.fire({
+                            title: 'Send Feedback successfully !',
+                            text: '',
+                            icon: 'success',
+                            confirmButtonText: 'ok'
+                        })
+                    }
+                })
         }
     }
     return (
@@ -91,7 +155,7 @@ const ManageClasses = () => {
                                     <td>
                                         {classes.available_seats}
                                     </td>
-                                    <td>
+                                    <td className='text-success'>
                                         {classes.status}
                                     </td>
                                     <td>
@@ -101,7 +165,7 @@ const ManageClasses = () => {
                                         </div>
                                     </td>
                                     <td>
-                                        <button onClick={handleFeedback} disabled={classes.status == 'approved' || classes.status == 'denied'} className='btn btn-success '>Send <br /> FeedBack</button>
+                                        <button onClick={() => handleFeedback(classes._id)} className='btn btn-success '>Send <br /> FeedBack</button>
                                     </td>
 
                                 </tr>)

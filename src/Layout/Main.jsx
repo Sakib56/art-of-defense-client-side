@@ -14,7 +14,7 @@ const Main = () => {
                 <Navbar isDarkTheme={isDarkTheme} toggleTheme={toggleTheme}></Navbar>
             </div>
             <Outlet></Outlet>
-            <div className={isDarkTheme ? 'bg-[#111827] bg-gray-[dark] text-white' : ' bg-[#0D233B]'}>
+            <div className={isDarkTheme ? 'bg-[#111827] text-white' : ' bg-[#0D233B]'}>
                 <Footer></Footer>
             </div>
             <ScrollRestoration></ScrollRestoration>
