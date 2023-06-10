@@ -32,7 +32,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
             checkUser == 'instructor' && <li><Link to='/dashboard/instructor '>Dashboard </Link></li>
         }
         {
-            checkUser == 'admin' && <li><Link to='/dashboard/admin '>Dashboard </Link></li>
+            checkUser == 'admin' && <li><Link to='/dashboard/manageClasses'>Dashboard </Link></li>
         }
 
 

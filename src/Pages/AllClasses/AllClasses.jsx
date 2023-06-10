@@ -10,7 +10,9 @@ const AllClasses = () => {
         axios.get('http://localhost:5000/allClasses')
             .then(res => {
                 // console.log(res.data)
-                setAllClassesData(res.data)
+                // setAllClassesData(res.data)
+                const result = res.data.filter(dt => dt.status == 'approved')
+                setAllClassesData(result)
                 setLoading(false)
             })
             .catch(error => console.error())

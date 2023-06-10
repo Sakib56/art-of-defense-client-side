@@ -46,13 +46,29 @@ const Dashboard = () => {
                                     <Link to='/dashboard/instructor'>Instructor Home</Link>
                                 </li>
                                 <li className='bg-slate-700 rounded-lg'>
-                                    <Link to='/dashboard/instructor'>Add A Class</Link>
+                                    <Link to='/dashboard/addAClass'>Add A Class</Link>
                                 </li>
                                 <li className='bg-slate-700 rounded-lg'>
-                                    <Link to='/dashboard/instructor'>My Classes</Link>
+                                    <Link to='/dashboard/instructorClasses'>My Classes</Link>
                                 </li>
                                 <li className='bg-slate-700 rounded-lg'>
-                                    <Link to='/dashboard/instructor'>Back Home</Link>
+                                    <Link to='/'>Back Home</Link>
+                                </li>
+                            </>
+                        }
+                        {
+                            data == 'admin' && <>
+                                <li className='bg-slate-700 rounded-lg'>
+                                    <Link to='/dashboard/adminHome'>Admin Home</Link>
+                                </li>
+                                <li className='bg-slate-700 rounded-lg'>
+                                    <Link to='/dashboard/manageClasses'>Manage Classes</Link>
+                                </li>
+                                <li className='bg-slate-700 rounded-lg'>
+                                    <Link to='/dashboard/manageUsers'>Manage Users</Link>
+                                </li>
+                                <li className='bg-slate-700 rounded-lg'>
+                                    <Link to='/'>Back Home</Link>
                                 </li>
                             </>
                         }

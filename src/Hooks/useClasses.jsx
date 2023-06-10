@@ -8,6 +8,7 @@ const useClasses = () => {
             const res = await fetch('http://localhost:5000/popularClasses');
             return res.json()
         }
+
     })
 
     return [classes, loading, refetch]
