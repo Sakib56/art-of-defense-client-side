@@ -53,6 +53,9 @@ const InstructorAllClasses = () => {
                                 <td>
                                     {insClass.student_admit_number}
                                 </td>
+                                <td>
+                                    {insClass.Feedback}
+                                </td>
                             </tr>)
                         }                       
 
