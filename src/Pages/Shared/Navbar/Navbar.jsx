@@ -56,7 +56,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
                     </div>
                     <div className="btn btn-ghost normal-case">
                         <img className='w-8 h-8 lg:w-10 lg:h-10' src={logoImg} alt="" />
-                        <span className='text-sm lg:text-3xl lg:font-bold'> Art Of Defense</span>
+                        <span className='text-xs lg:text-3xl lg:font-bold'> Art Of Defense</span>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -67,7 +67,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
                 <div className="navbar-end">
                     <button onClick={toggleTheme} className="text-lg lg:mr-5 font-medium">
                         {
-                            isDarkTheme ? <div className='flex justify-center items-center'><FaMoon /> <p>Dark</p></div> : <div className='flex justify-center items-center'><FaRegMoon /> <p>Light</p></div>
+                            isDarkTheme ? <div className='flex justify-center items-center'><FaMoon /> <p className='hidden md:block'>Dark</p></div> : <div className='flex justify-center items-center'><FaRegMoon /> <p className='hidden md:block'>Light</p></div>
                         }
                     </button>
                     {user ? <>
