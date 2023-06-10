@@ -56,7 +56,7 @@ const AddClasses = () => {
     };
     // console.log(img_hosting_token)
     return (
-        <div className='w-full'>
+        <div className='w-full my-10'>
             <h1 className='text-4xl text-center font-bold my-5'>Add Class</h1>
             <form onSubmit={handleSubmit(onSubmit)} className='w-3/4 mx-auto bg-gray-100 p-10'>
 

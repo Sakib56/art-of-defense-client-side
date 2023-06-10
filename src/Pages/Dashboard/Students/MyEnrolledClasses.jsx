@@ -14,7 +14,7 @@ const MyEnrolledClasses = () => {
             })
     }, [])
     return (
-        <div className='w-3/4 mx-auto'>
+        <div className='w-3/4 mx-auto my-10'>
             <h1 className='text-center text-3xl font-bold mb-10'>My enrolled classes</h1>
 
             <div>

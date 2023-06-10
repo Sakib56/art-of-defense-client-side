@@ -38,7 +38,7 @@ const MySelectedClasses = () => {
         })
     }
     return (
-        <div className='w-full'>
+        <div className='w-full my-10'>
             <div className='flex justify-around text-2xl font-bold my-5'>
                 <h1>My selected Classes :{cart.length}</h1>
             </div>

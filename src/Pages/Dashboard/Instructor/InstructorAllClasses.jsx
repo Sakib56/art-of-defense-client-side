@@ -16,7 +16,7 @@ const InstructorAllClasses = () => {
             .catch(error => console.error())
     }, [user])
     return (
-        <div className='w-full'>
+        <div className='w-full my-10'>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

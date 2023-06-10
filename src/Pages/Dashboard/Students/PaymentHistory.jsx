@@ -29,7 +29,7 @@ const PaymentHistory = () => {
         return formattedDate;
     };
     return (
-        <div className='w-3/4 mx-auto'>
+        <div className='w-3/4 mx-auto my-10'>
             <h1 className='text-center text-3xl font-bold mb-10'>Payment History</h1>
 
             <div>

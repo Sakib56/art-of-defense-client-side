@@ -15,7 +15,7 @@ const ManageClasses = () => {
     }, [])
     console.log(allClassesData)
     return (
-        <div className='w-full'>
+        <div className='w-full my-20'>
             <h2 className='text-center font-bold text-3xl'>Manage All classes</h2>
         </div>
     );
