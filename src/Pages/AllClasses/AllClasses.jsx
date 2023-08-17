@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { ClipLoader } from 'react-spinners';
 import AllClassesCard from './AllClassesCard';
 import useAuth from '../../Hooks/useAuth';
+import AllClassesBanner from './AllClasssesBanner';
 
 const AllClasses = () => {
     const [allClassesData, setAllClassesData] = useState([])
@@ -35,24 +36,27 @@ const AllClasses = () => {
     // console.log(allClassesData)
     console.log(role)
     return (
-        <div className='my-8 lg:my-14 max-w-7xl mx-auto'>
-            <h1 className='text-center font-bold text-3xl my-10'>All classes</h1>
-            {
-                loading ? <> <div className='text-center mt-10'><ClipLoader
-                    color="#36d7b7"
-                    // loading={loading}
-                    // cssOverride={override}
-                    size={150}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                /> </div></> :
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                        {
-                            allClassesData.map(classes => <AllClassesCard classes={classes} role={role} key={classes._id}>
-                            </AllClassesCard>)
-                        }
-                    </div>
-            }
+        <div className='bg-gradient-to-r from-[#1F2D48] to-[#1f3c48fd] text-white'>
+            <AllClassesBanner></AllClassesBanner>
+            <div className='py-8 lg:py-14 max-w-7xl mx-auto'>
+                <h1 className='text-center font-serif font-bold text-3xl my-10'>All classes</h1>
+                {
+                    loading ? <> <div className='text-center mt-10'><ClipLoader
+                        color="#36d7b7"
+                        // loading={loading}
+                        // cssOverride={override}
+                        size={150}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                    /> </div></> :
+                        <div className='grid grid-cols-2 lg:grid-cols-3 gap-5'>
+                            {
+                                allClassesData.map(classes => <AllClassesCard classes={classes} role={role} key={classes._id}>
+                                </AllClassesCard>)
+                            }
+                        </div>
+                }
+            </div>
         </div>
     );
 };

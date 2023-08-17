@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useClasses from '../../../Hooks/useClasses';
 import PopularClassesCard from './PopularClassesCard';
 import axios from 'axios';
+import SectionTitle from '../../../Components/SectionTitle';
 
 const PopularClasses = () => {
     const [popularClasses, setPopularClasses] = useState([])
@@ -16,10 +17,12 @@ const PopularClasses = () => {
             .catch(error => console.error())
     }, [])
     return (
-        <div className='my-8 lg:my-20 max-w-6xl mx-auto'>
-            <h1 className='text-4xl text-center font-bold'>Popular Classes</h1>
-            <p className='text-center italic mt-2 lg:mb-7'>Join our martial art club and be healthy.</p>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+        <div className='my-8 lg:my-20 max-w-7xl mx-auto'>
+            <div>
+                <SectionTitle subHeading={"Popular Classes"} Heading={"Join our martial art club and be healthy."}></SectionTitle>
+            </div>
+           
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5 md:p-0'>
                 {
                     popularClasses.slice(0, 6).map(popularClass => <PopularClassesCard
                         key={popularClass._id}

@@ -53,17 +53,17 @@ const AllClassesCard = ({ classes, role }) => {
 
         <>
             <Fade>
-                <div className={`shadow-2xl p-10 rounded ${available_seats <= 0 ? 'bg-red-400' : ''}`}>
-                    <img className='w-full h-60 rounded-lg' src={class_img} alt="" />
-                    <p className='text-xl font-bold'>{name}</p>
-                    <p className='text-xl font-semibold mt-3'>Instructor name : {instructor}</p>
+                <div className={`shadow-2xl bg-black bg-opacity-10 p-2 lg:p-10 rounded ${available_seats <= 0 ? 'bg-red-400' : ''}`}>
+                    <img className='w-full h-36 md:h-60 rounded-lg' src={class_img} alt="" />
+                    <p className='text-base md:text-xl font-bold italic mt-3 text-secondary'>{name}</p>
+                    <p className='text-xs md:text-lg font-semibold italic text-white text-opacity-80'>Instructor name : {instructor}</p>
 
-                    <div className='flex justify-between items-end mt-5'>
-                        <div className='text-lg font-semibold'>
+                    <div className='flex justify-between items-end md:mt-5'>
+                        <div className='text-[10px] md:text-lg font-semibold italic text-white text-opacity-75'>
                             <p>Price: ${price}</p>
                             <p>Available seats:{available_seats}</p>
                         </div>
-                        <button disabled={role == 'admin' || role == 'instructor'} onClick={() => handleClassSelect(classes)} className={`${available_seats <= 0 || show ? 'btn-disabled' : 'btn btn-primary'} font-bold px-3 rounded py-2`}>Select class</button>
+                        <button disabled={role == 'admin' || role == 'instructor'} onClick={() => handleClassSelect(classes)} className={`${available_seats <= 0 || show ? 'btn-disabled' : 'bg-gradient-to-r from-[#941320] to-[#49072bbd]'} text-[10px] md:text-base font-semibold px-1 md:px-3 rounded md:py-2`}>Select class</button>
 
                     </div>
                 </div>
